@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
         📺
       </Text>
       <Text style={styles.titulo}>
-        TVShowApp
+        WikiSeries
       </Text>
       <Text style={styles.descricao}>
         Encontre informações sobre suas séries
