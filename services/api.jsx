@@ -66,6 +66,26 @@ function dividirTexto(texto, tamanhoMaximo = 450) {
   return partes;
 }
 
+export async function buscarTemporadas(idSerie) {
+  try {
+    const resposta = await fetch(
+      `${API_URL}/shows/${idSerie}/seasons`
+    );
+
+    if (!resposta.ok) {
+      throw new Error("Erro ao buscar temporadas");
+    }
+
+    const temporadas = await resposta.json();
+
+    return temporadas.length;
+  } catch (erro) {
+    console.log("Erro ao buscar temporadas:", erro);
+
+    return 0;
+  }
+}
+
 export async function traduzirTexto(texto) {
   try {
     if (!texto) {

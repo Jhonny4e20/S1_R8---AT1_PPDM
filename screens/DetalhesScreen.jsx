@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
-import { traduzirSinopse, traduzirGeneros, traduzirStatus, traduzirPais } from "../services/api";
+import { traduzirSinopse, traduzirGeneros, traduzirStatus, traduzirPais, buscarTemporadas, } from "../services/api";
 
 export default function DetalhesScreen({ route }) {
   const { serie } = route.params;
@@ -9,6 +9,7 @@ export default function DetalhesScreen({ route }) {
   const [status, setStatus] = useState("");
   const [pais, setPais] = useState("");
   const [traduzindo, setTraduzindo] = useState(true);
+  const [temporadas, setTemporadas] = useState(0);
 
   useEffect(() => {
     traduzirInformacoes();
